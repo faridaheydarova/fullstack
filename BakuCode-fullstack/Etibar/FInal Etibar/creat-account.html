@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesab yaratmaq</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 20px;
+            padding: 10px;
+        }
+        .btn-custom {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+        .invalid-feedback, .valid-feedback {
+            text-align: left;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h1>Hesab yaratmaq</h1>
+
+    <div id="alert-seller-add-success" class="alert alert-success" style="display: none;">
+        İstifadəçi əlavə edildi
+    </div>
+
+    <div id="alert-seller-add-fail" class="alert alert-danger" style="display: none;">
+        Belə bir istifadəçi mövcuddur
+    </div>
+
+    <form class="was-validated" onsubmit="addSeller(event)">
+        <div class="form-group mt-4">
+            <input id="username" required minlength="4" maxlength="15" placeholder="Username" class="form-control" type="text">
+            <span class="valid-feedback">Dogrudur</span>
+            <span class="invalid-feedback">Minimum 4 simvol olmalıdır, maksimum 15 simvol ola bilər</span>
+        </div>
+
+        <div class="form-group mt-4">
+            <input id="password" required minlength="4" placeholder="Password" class="form-control" type="password">
+            <span class="valid-feedback">Dogrudur</span>
+            <span class="invalid-feedback">Minimum 4 simvol olmalıdır</span>
+        </div>
+
+        <button type="submit" class="btn btn-info text-white btn-custom mt-4">Hesab yarat</button>
+    </form>
+</div>
+
+<script src="./creat-account.js" defer></script>
+</body>
+</html>

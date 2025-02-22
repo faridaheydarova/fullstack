@@ -1,0 +1,117 @@
+/* Updated button colors */
+.btn-warning {
+    background-color: #FF8C00 !important; /* Dark Orange */
+    border-color: #FF8C00;
+    color: white;
+}
+
+.btn-info {
+    background-color: #1E90FF !important; /* Dodger Blue */
+    border-color: #1E90FF;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #DC143C !important; /* Crimson */
+    border-color: #DC143C;
+    color: white;
+}
+
+.btn-success {
+    background-color: #228B22 !important; /* Forest Green */
+    border-color: #228B22;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #6A5ACD !important; /* Slate Blue */
+    border-color: #6A5ACD;
+    color: white;
+}
+
+/* Updated button colors */
+.btn-warning {
+    background-color: #FF8C00 !important; /* Dark Orange */
+    border-color: #FF8C00;
+    color: white;
+}
+
+.btn-info {
+    background-color: #1E90FF !important; /* Dodger Blue */
+    border-color: #1E90FF;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #DC143C !important; /* Crimson */
+    border-color: #DC143C;
+    color: white;
+}
+
+.btn-success {
+    background-color: #228B22 !important; /* Forest Green */
+    border-color: #228B22;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #6A5ACD !important; /* Slate Blue */
+    border-color: #6A5ACD;
+    color: white;
+}
+
+.carousel {
+    width: 60vw !important;
+    height: auto !important;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.7); /* Darker background for better readability */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* Carousel Indicators */
+.carousel-indicators button {
+    background-color: #FF4500 !important;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 778px) {
+    .carousel {
+        width: 90vw;
+    }
+
+    .carousel-inner img {
+        height: 300px;
+    }
+}

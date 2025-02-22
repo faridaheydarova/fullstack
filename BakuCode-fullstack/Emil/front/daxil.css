@@ -1,0 +1,60 @@
+.button1{
+    width: 130px;
+    height: 30px;
+    margin-top: 15px;
+    background-color: green;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    padding: 5px;
+}
+hr{
+    width: 300px;
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid hsl(0, 1%, 65%);
+
+    
+}
+.button15{
+    background-color: hwb(51 0% 0%);
+    border: none;
+    width: 100px;
+    height: 35px;
+    border-radius:5px ;
+    }
+
+.div1{
+    margin-left: 40%;
+}
+h1{
+    margin-bottom: 25px;
+}
+input{
+    width: 300px;
+    height: 25px;
+
+}
+
+.div2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.button2{
+    width: 100px;
+    height: 33px;
+    border-radius: 3px;
+    border: none;
+    background-color: blue;
+    color: white;
+    margin-top: 5px;
+}
+a{
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+.ahref{
+    color: black;
+}

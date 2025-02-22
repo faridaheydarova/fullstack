@@ -1,0 +1,102 @@
+body{
+    background-color: grey;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.button1{
+    color: black;
+    background-color: #ffc800;
+    margin-left: 50px;
+    margin-top: 10px;
+   width: 150px;
+   height: 30px;
+    border-radius: 4px;
+    border: none;
+   
+}
+.btn3{
+    color: white;
+    background-color: red;
+    margin-left: 8px;
+    margin-top: 10px;
+   width: 120px;
+   height: 30px;
+    border-radius: 4px;
+    border: none;
+}
+a{
+    color: white;
+    text-decoration: none;
+    list-style: none;
+}
+.button2{
+    color: white;
+   background-color: hsl(106, 93%, 32%);
+    margin-left: 5px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 4px;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+}
+.a1{
+    color: white;
+    text-decoration: none;
+    list-style: none;
+}
+.a2{
+    color: black;
+    text-decoration: none;
+    list-style: none;
+}
+.h1{
+    margin: 30px;
+}
+.car1{
+    width: 500px;
+    height: 500px;
+    margin-left: 400px;
+    margin-top: 20px;
+}
+.car2{
+    width: 500px;
+    height: 500px;
+    margin-left: 370px;
+    margin-top: 20px;
+}
+.car3{
+    width: 500px;
+    height: 500px;
+    margin-left: 370px;
+    margin-top: 20px;
+}
+a{
+list-style-type: none;
+text-decoration: none;
+}
+
+.carousel-control-next{
+    background-color: pink !important;
+    width: 35px !important;
+    height: 500px !important;
+   
+    margin-top: 25px ;
+    margin-right: 350px ; 
+}
+.carousel-control-prev{
+    background-color: pink !important; 
+    width: 35px !important;
+    height: 500px !important;
+    margin-top: 25px;
+   
+    margin-left: 315px;
+}
+.carousel-item{
+    transition: transform 0.5s ease-in-out;
+}
+
+

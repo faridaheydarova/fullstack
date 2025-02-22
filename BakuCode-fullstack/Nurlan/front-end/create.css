@@ -1,0 +1,96 @@
+/* Forma Dizaynı */
+form {
+    width: 30vw;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Dizaynları */
+input {
+    border-radius: 8px !important;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Düymə Dizaynları */
+button {
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Baş düymələr */
+.btn-warning {
+    background-color: #ff9800 !important;
+    color: white !important;
+}
+
+.btn-warning:hover {
+    background-color: #e68900 !important;
+}
+
+.btn-success {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.btn-success:hover {
+    background-color: #218838 !important;
+}
+
+.btn-primary {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+}
+
+/* Xəta və Doğrulama Mesajları */
+.false {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.true {
+    color: green;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Uğurlu Mesaj */
+.message {
+    background-color: rgba(0, 128, 0, 0.1);
+    color: green;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    display: none;
+}
+
+/* Hesaba Daxil Ol Bölməsi */
+.right {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login {
+    text-align: center;
+    margin-top: 5px;
+}

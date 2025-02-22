@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hesaba Daxil Ol</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin: 20px;
+    }
+    .card-body {
+      padding: 2rem;
+    }
+    .btn-success, .btn-primary, .btn-outline-secondary {
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-success:hover {
+      background-color: #218838;
+    }
+    .btn-primary:hover {
+      background-color: #0069d9;
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .separator {
+      margin: 1.5rem 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-end">
+        <a href="index.html" class="btn btn-outline-secondary">Əsas Səhifə</a>
+      </div>
+      <div class="login-header">
+        <h1>Hesaba Daxil Ol</h1>
+      </div>
+      <form>
+        <div class="mb-3">
+          <label for="username" class="form-label">Istifadəçi adı:</label>
+          <input type="text" class="form-control" id="username" minlength="2" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Şifrə:</label>
+          <input type="password" class="form-control" id="password" minlength="2" maxlength="62" required>
+        </div>
+        <div class="d-grid mb-3">
+          <button class="btn btn-success" type="button" onclick="loginUser()">Hesaba Daxil Ol</button>
+        </div>
+      </form>
+      <hr class="separator">
+      <div class="text-center">
+        <p>Hesabın yoxdur?</p>
+        <a href="register.html" class="btn btn-primary">Hesab Yarat</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="daxil.js"></script>
+</body>
+</html>

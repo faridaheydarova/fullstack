@@ -1,0 +1,104 @@
+
+form {
+    width: 25vw;
+    margin: 5vh auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.true, .false {
+    display: none;
+    font-size: small;
+}
+
+.true {
+    color: green;
+}
+
+.false {
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+hr {
+    width: 25vw;
+    margin: 2vh auto;
+}
+
+
+.btn-warning {
+    display: block;
+    margin: 2vh auto 1vh auto;
+    background-color: #ff9800 !important;
+    color: white;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-warning:hover {
+    background-color: #e68900 !important;
+}
+
+.btn-primary {
+    display: block;
+    margin: 1vh auto;
+    background-color: #007bff !important;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3 !important;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+h2 {
+    text-align: center;
+    margin: 2vh 0;
+    font-weight: bold;
+}
+
+.mb-3 {
+    position: relative;
+}
+
+i {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+}
+
+.fa-circle-exclamation {
+    color: red;
+}
+
+.fa-check {
+    color: green;
+}
+
+.message {
+    background-color: rgba(0, 128, 0, 0.267);
+    color: green;
+    height: 4vh;
+    margin: 1vh auto;
+    padding-left: 16px;
+    padding-top: 8px;
+    border-radius: 5px;
+    display: none;
+}

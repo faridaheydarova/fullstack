@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <title>Saticini komputerleri satisi sehifesi</title>
+
+  
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #1e3c72;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-btn, .delete-btn {
+    display: inline-block;
+    background-color: #007bff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+.table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.table button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.modal-content {
+    border-radius: 8px;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <button class="btn btn-primary" onclick="window.location.href='index.html'">Əsas səhifə</button>
+        <button data-bs-target="#computers-modal" data-bs-toggle="modal" class="btn btn-info text-white">Komputerin əlavə et</button>
+        <table class="table" id="computers">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Şəkil</th>
+                    <th>Qiymət</th>
+                    <th>Əməliyyatlar</th>
+                </tr>
+            </thead>
+            <tbody id="computer-list"></tbody>
+        </table>
+        <div id="computers-modal" class="modal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header"  id="modalTitle">
+                        <h2>Komputerlərin əlavə edilməsi</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Bağla"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="was-validated" id="computerForm">
+                            <input type="hidden" id="computerId">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Marka:</label>
+                                        <input id="brand" required placeholder="Məsələn, HP" class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Model:</label>
+                                        <input id="model" required placeholder="Məsələn, G62" class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Qiymət:</label>
+                                        <input id="price" required placeholder="Məsələn, 500" class="form-control" type="number">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Şəkil:</label>
+                                        <input id="photo" class="form-control" type="file">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Təsvir:</label>
+                                        <textarea id="description" required placeholder="Komputer haqqında məlumat" class="form-control" rows="2"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Əməli yaddaş (GB):</label>
+                                        <input id="ram" required placeholder="Məsələn, 8" class="form-control" type="number">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Mərkəzi prosessor:</label>
+                                        <input id="cpu" required placeholder="Məsələn, Core i7" class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <label class="h3">Daimi yaddaş (GB):</label>
+                                        <input id="rom" required placeholder="Məsələn, 512" class="form-control" type="number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bağla</button>
+                                <button type="button" class="btn btn-primary" onclick="saveProduct()">Yadda saxla</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="imageModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    <img src="" style="width: 100%;" id="computer-photo" alt="Şəkil">
+                </div>
+             
+                
+            </div>
+        </div>
+    </div>
+    <script >
+        
+async function loadUserComputers() {
+    try {
+        const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+
+        if (!username || !password) {
+            alert("Təsdiqləmə üçün giriş etməlisiniz.");
+            window.location.href = "./login.html";
+            return;
+        }
+
+        const credentials = btoa(`${username}:${password}`);
+        const response = await fetch("http://localhost:8024/computers/my-computers", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Basic ${credentials}`,
+            },
+        });
+
+        if (response.ok) {
+            const computers = await response.json();
+            const list = document.getElementById("computers");
+            list.innerHTML = "";
+
+            if (computers.length === 0) {
+                list.innerHTML = "<tr><td colspan='5'>Heç bir kompüter yoxdur.</td></tr>";
+            } else {
+                computers.forEach((computer) => {
+                    const tableRow = document.createElement("tr");
+                    tableRow.innerHTML = `
+                        <td>${computer.id}</td>
+                        <td>${computer.brand}</td>
+                      <td>
+    ${
+        computer.photo 
+        ? `<img src="${computer.photo}" alt="Şəkil" style="width: 50px; height: 50px; object-fit: cover; cursor: pointer;" onclick="onShowImage(${computer.id})"/>`
+        : "No image"
+    }
+</td>
+
+                        <td>${computer.price}</td>
+                        <td>
+                            <button type="button" class="edit-btn" data-toggle="modal" data-target="#computers-modal" onclick="updateComputer(${computer.id})">Redaktə</button>
+                            <button class="delete-btn" onclick="bilgisayarSil(${computer.id})">Sil</button>
+                        </td>
+                    `;
+                    list.appendChild(tableRow);
+                });
+            }
+        } else {
+            alert("Kompüterləri yükləmək mümkün olmadı.");
+        }
+    } catch (error) {
+        console.error("Xəta baş verdi:", error);
+    }
+}
+
+
+async function updateComputer(id) {
+    try {
+        const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+
+        if (!username || !password) {
+            alert("Təsdiqləmə üçün giriş etməlisiniz.");
+            window.location.href = "./login.html";
+            return;
+        }
+
+        const credentials = btoa(`${username}:${password}`);
+        const response = await fetch(`http://localhost:8024/computers/${id}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Basic ${credentials}`,
+            },
+        });
+
+        if (response.ok) {
+            const computer = await response.json();
+
+            document.getElementById("computerId").value = computer.id;
+            document.getElementById("brand").value = computer.brand;
+            document.getElementById("model").value = computer.model;
+            document.getElementById("price").value = computer.price;
+            document.getElementById("description").value = computer.description;
+            document.getElementById("ram").value = computer.ram;
+            document.getElementById("cpu").value = computer.cpu;
+            document.getElementById("rom").value = computer.rom;
+            document.getElementById("photo").value ="";
+
+         
+            document.getElementById("modalTitle").innerText = "Kompüteri redaktə et";
+
+            var myModal = new bootstrap.Modal(document.getElementById("computers-modal"));
+    myModal.show();
+    loadUserComputers();
+        } else {
+          
+        }
+    } catch (error) {
+    console.error("Xəta baş verdi:", error.message);
+}
+}
+
+async function saveProduct() {
+    let formData = new FormData();
+    
+    let photo = document.getElementById("photo");
+  
+    if (photo && photo.files.length > 0) {
+        formData.append("file", photo.files[0]);
+    } else {
+        alert("Fayl seçilməyib!");
+        return;
+    }
+
+    const credentials = btoa(`${localStorage.getItem("username")}:${localStorage.getItem("password")}`);
+
+
+    let response = await fetch(`http://localhost:8024/files/upload`, {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Authorization": `Basic ${credentials}`
+        }
+    });
+
+
+    if (response.status == 200) {
+       
+    } else {
+        alert("Şəkil yüklənmədi!");
+    }
+    
+    var photoName=await response.json();
+    saveComputer(photoName.fileName);
+}
+
+
+
+async function bilgisayarSil(id) {
+    if (confirm("Bu kompüteri silmək istədiyinizdən əminsinizmi?")) {
+        try {
+            const response = await fetch(`http://localhost:8024/computers/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Authorization": `Basic ${btoa(
+                        `${localStorage.getItem("username")}:${localStorage.getItem("password")}`
+                    )}`,
+                },
+            });
+
+            if (response.ok) {
+                alert("Kompüter uğurla silindi.");
+                loadUserComputers();
+            } else {
+                alert("Kompüteri silmək mümkün olmadı.");
+            }
+        } catch (error) {
+            console.error("Xəta baş verdi:", error);
+        }
+    }
+}
+window.onload = loadUserComputers;
+
+
+async function saveComputer(photo){
+    
+    try {
+        const username = localStorage.getItem("username");
+        const password = localStorage.getItem("password");
+
+        if (!username || !password) {
+            alert("Təsdiqləmə üçün giriş etməlisiniz.");
+            window.location.href = "./login.html";
+            return;
+        }
+
+        const credentials = btoa(`${username}:${password}`);
+        const computerId = document.getElementById("computerId").value;
+
+        const productData = {
+    brand: document.getElementById("brand").value,
+    model: document.getElementById("model").value,
+    price: document.getElementById("price").value,
+    description: document.getElementById("description").value,
+    ram: document.getElementById("ram").value,
+    cpu: document.getElementById("cpu").value,
+    rom: document.getElementById("rom").value,
+    photo: photo,
+};
+
+
+        let url = `http://localhost:8024/computers/save`;
+        let method = "POST";
+
+        if (computerId) {
+            url = `http://localhost:8024/computers/${computerId}`;
+            method = "PUT";
+        }
+        
+
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Basic ${credentials}`,
+            },
+            body: JSON.stringify(productData),
+        });
+
+        if (response.ok) {
+            alert(computerId ? "Kompüter uğurla güncəlləndi." : "Yeni kompüter uğurla saxlanıldı.");
+            $("#myModal").modal("hide");
+            loadUserComputers();
+        } else {
+            alert("Məlumatı saxlayarkən xəta baş verdi.");
+        }
+    } catch (error) {
+        console.error("Xəta baş verdi:", error);
+    }
+}
+document.getElementById("photo").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.getElementById("preview");
+            preview.src = e.target.result;
+            preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+async function onShowImage(computerId) {
+    try {
+        const response = await fetch(`http://localhost:8024/computers/${computerId}`);
+        if (!response.ok) {
+            throw new Error("Kompüter məlumatını yükləmək mümkün olmadı");
+        }
+
+        const computer = await response.json();
+
+       
+        const imageUrl = computer.photo.startsWith("http")
+            ? computer.photo
+            : `http://localhost:8024/files/download/${computer.photo}`;
+
+        document.getElementById("computer-photo").src = imageUrl;
+
+        $("#imageModal").modal("show");
+
+        console.log("Şəkil yükləndi:", imageUrl);
+    } catch (error) {
+        console.error("Xəta:", error);
+        alert("Şəkili göstərmək mümkün olmadı.");
+    }
+}
+
+    </script>
+</body>
+</html>
