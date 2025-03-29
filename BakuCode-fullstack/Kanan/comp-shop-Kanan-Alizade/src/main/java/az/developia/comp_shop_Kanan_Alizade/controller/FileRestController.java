@@ -38,7 +38,7 @@ public class FileRestController {
 		String fileName = file.getOriginalFilename();
 		try {
 			InputStream stream = file.getInputStream();
-			File java = new File("C:/java");
+			File java = new File("/Users/faridaheydarova/java");
 			if (!java.exists()) {
 				java.mkdir();
 			}
